@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+interface BebidaFactory
+interface Cafe
+interface Cha
+
+class BebidaQuenteFactory
+class BebidaFriaFactory
+class CafeQuente
+class CafeGelado
+class ChaQuente
+class ChaGelado
+
+' Herança
+BebidaFactory <|-- BebidaQuenteFactory
+BebidaFactory <|-- BebidaFriaFactory
+
+Cafe <|-- CafeQuente
+Cafe <|-- CafeGelado
+
+Cha <|-- ChaQuente
+Cha <|-- ChaGelado
+
+' Ligações corretas (sem ambiguidade)
+BebidaQuenteFactory ..> CafeQuente
+BebidaQuenteFactory ..> ChaQuente
+
+BebidaFriaFactory ..> CafeGelado
+BebidaFriaFactory ..> ChaGelado
+
+@enduml
